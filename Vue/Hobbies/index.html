@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise #1</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <h2>Hey bud! Add your hobbies! </h2>
+    <div id="app">
+        <input type="text" v-model="input"
+                v-on:keyup.enter="addHobby">
+
+        <button @click="addHobby">Add</button>
+        
+        <app-list title="Hobbies" v-bind:hobbies="hobbies"
+                  v-on:deletehobby="deleteHobby($event)"></app-list>
+        <app-list title="Deleted hobbies" 
+                  v-bind:hobbies="delHobbies"></app-list>
+
+        <!-- <ul v-if="hobbies.length == 0 ? false : true">Hobbies:
+            <li v-for="hobby in hobbies"
+                @click.self="deleteHobby(hobby)">{{ hobby }}</li>
+        </ul>
+
+        <ul v-if="delHobbies.length == 0 ? false : true">Deleted hobbies
+            <li v-for="hobby in delHobbies">{{ hobby }}</li>
+        </ul> -->
+    </div>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

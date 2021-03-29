@@ -1,0 +1,28 @@
+
+<input 
+  type = 'text'
+  [(ngModel)] = "newHobby"
+  placeholder = 'provide a hobby'/>
+  
+<button (click) = "addHobby()">add hobby</button>
+<ul>
+  <app-hobbies 
+    *ngFor = "let hobby of hobbies"
+    [hobbyName] = "hobby"
+    [ind] = hobbies.indexOf(hobby)
+    (hobbyRemoved) = "removeHobby($event)"></app-hobbies>
+</ul>
+
+<ul>
+  <app-delhobbies
+    *ngFor = "let delHobby of delHobbies"
+    [delHobby] = "delHobby"></app-delhobbies>
+</ul>
+
+<div>
+  <a routerLink="/">Home</a>
+  <a routerLink="/user">User</a>
+  <a routerLink="/info">Info</a>
+</div>
+
+<router-outlet></router-outlet>
